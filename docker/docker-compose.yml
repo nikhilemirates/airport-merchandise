@@ -1,0 +1,16 @@
+hystrix:
+  image: airportmerchandise/hystrix-dashboard
+  ports:
+   - "7979:7979"
+  links:
+   - discovery
+discovery:
+  image: airportmerchandise/discovery-microservice
+  ports:
+   - "8761:8761"
+configserver:
+  image: airportmerchandise/airport-merchandise-config
+  ports:
+   - "8888:8888"
+  links:
+   - discovery

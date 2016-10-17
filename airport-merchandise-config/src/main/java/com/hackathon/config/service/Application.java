@@ -1,4 +1,4 @@
-package com.emirates.hackathon.config.service;
+package com.hackathon.config.service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
