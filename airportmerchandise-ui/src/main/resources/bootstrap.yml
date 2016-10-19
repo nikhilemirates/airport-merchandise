@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: ui
+  cloud:
+    config:
+      uri: http://configserver:8888
+      fail-fast: true
+encrypt:
+  failOnError: false

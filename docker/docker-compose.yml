@@ -3,6 +3,7 @@ hystrix:
   ports:
    - "7979:7979"
   links:
+   - gateway
    - discovery
 discovery:
   image: airportmerchandise/discovery-microservice
@@ -14,3 +15,8 @@ configserver:
    - "8888:8888"
   links:
    - discovery
+gateway:
+  image: airportmerchandise/api-gateway-microservice
+  links:
+   - discovery
+   - configserver
