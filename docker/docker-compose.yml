@@ -17,6 +17,17 @@ configserver:
    - discovery
 gateway:
   image: airportmerchandise/api-gateway-microservice
+  ports:
+   - "1000:1000"
   links:
    - discovery
    - configserver
+   
+ui:
+  image: airportmerchandise/airportmerchandise-ui
+  ports:
+   - "9000:9000"
+  links:
+   - discovery
+   - configserver
+   - gateway

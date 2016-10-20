@@ -1,0 +1,14 @@
+server:
+  port: 9000
+logging:
+  level:
+    org.springframework.security: DEBUG
+    
+eureka:
+  instance:
+    hostname: ui
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/

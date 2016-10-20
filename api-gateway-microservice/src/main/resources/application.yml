@@ -1,17 +1,29 @@
 server:
-  port: 10000
+  port: 1000
 
-sidecar:
-  port: 8000
+zuul:
+  ignoredServices: '*'
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
+  routes:
+    ui:
+      path: /home/**
+      url: http://localhost:9000
+      sensitive-headers:
+        
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
 
-endpoints:
-  restart:
-    enabled: true
-  shutdown:
-    enabled: true
-  health:
-    sensitive: false
-
+ribbon:
+  ReadTimeout: 20000
+  ConnectTimeout: 20000
+   
 eureka:
   instance:
     hostname: gateway
